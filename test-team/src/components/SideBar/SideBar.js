@@ -1,6 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import * as ROUTES from "../../constants/routes/routes";
-
+import { RiDashboardFill } from "react-icons/ri";
+import { FaUserFriends } from "react-icons/fa";
+import { MdCategory } from "react-icons/md";
 const navigation = [
   {
     name: "Home",
@@ -26,204 +29,166 @@ const navigation = [
 
 export const SideBar = () => {
   return (
-    <div>
-      {/* Start */}
-      <div class="container-fluid">
-        <div class="row flex-nowrap">
-          <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
-            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-              <a
-                href="/"
-                class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none"
-              >
-                <span class="fs-5 d-none d-sm-inline">Menu</span>
+    <div className="sidebar">
+      <ul
+        className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+        id="accordionSidebar"
+      >
+        {/* Sidebar - Brand */}
+        <a
+          className="sidebar-brand d-flex align-items-center justify-content-center"
+          href="index.html"
+        >
+          <div className="sidebar-brand-icon rotate-n-15">
+            <i className="fas fa-laugh-wink" />
+          </div>
+          <div className="sidebar-brand-text mx-3">
+            Optech <sup>2</sup>
+          </div>
+        </a>
+        {/* Divider */}
+        <hr className="sidebar-divider my-0" />
+        {/* Nav Item - Dashboard */}
+        <li className="nav-item active">
+          <a className="nav-link" href="index.html">
+            <i className="fas fa-fw fa-tachometer-alt" />
+
+            <span>Dashboard</span>
+          </a>
+        </li>
+        {/* Divider */}
+        <hr className="sidebar-divider" />
+        {/* Heading */}
+        <div className="sidebar-heading">Interface</div>
+        {/* Nav Item - Pages Collapse Menu */}
+        <li className="nav-item">
+          <a
+            className="nav-link collapsed"
+            href="#"
+            data-toggle="collapse"
+            data-target="#collapseTwo"
+            aria-expanded="true"
+            aria-controls="collapseTwo"
+          >
+            <i className="fas fa-fw fa-cog" />
+            <span>Components</span>
+          </a>
+          <div
+            id="collapseTwo"
+            className="collapse"
+            aria-labelledby="headingTwo"
+            data-parent="#accordionSidebar"
+          >
+            <div className="bg-white py-2 collapse-inner rounded">
+              <h6 className="collapse-header">Custom Components:</h6>
+              <a className="collapse-item" href="buttons.html">
+                Buttons
               </a>
-              <ul
-                class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
-                id="menu"
-              >
-                <li class="nav-item">
-                  <a href="#" class="nav-link align-middle px-0">
-                    <i class="fs-4 bi-house"></i>{" "}
-                    <span class="ms-1 d-none d-sm-inline">Home</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#submenu1"
-                    data-bs-toggle="collapse"
-                    class="nav-link px-0 align-middle"
-                  >
-                    <i class="fs-4 bi-speedometer2"></i>{" "}
-                    <span class="ms-1 d-none d-sm-inline">Dashboard</span>{" "}
-                  </a>
-                  <ul
-                    class="collapse show nav flex-column ms-1"
-                    id="submenu1"
-                    data-bs-parent="#menu"
-                  >
-                    <li class="w-100">
-                      <a href="#" class="nav-link px-0">
-                        {" "}
-                        <span class="d-none d-sm-inline">Item</span> 1{" "}
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" class="nav-link px-0">
-                        {" "}
-                        <span class="d-none d-sm-inline">Item</span> 2{" "}
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="#" class="nav-link px-0 align-middle">
-                    <i class="fs-4 bi-table"></i>{" "}
-                    <span class="ms-1 d-none d-sm-inline">Orders</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#submenu2"
-                    data-bs-toggle="collapse"
-                    class="nav-link px-0 align-middle "
-                  >
-                    <i class="fs-4 bi-bootstrap"></i>{" "}
-                    <span class="ms-1 d-none d-sm-inline">Bootstrap</span>
-                  </a>
-                  <ul
-                    class="collapse nav flex-column ms-1"
-                    id="submenu2"
-                    data-bs-parent="#menu"
-                  >
-                    <li class="w-100">
-                      <a href="#" class="nav-link px-0">
-                        {" "}
-                        <span class="d-none d-sm-inline">Item</span> 1
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" class="nav-link px-0">
-                        {" "}
-                        <span class="d-none d-sm-inline">Item</span> 2
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a
-                    href="#submenu3"
-                    data-bs-toggle="collapse"
-                    class="nav-link px-0 align-middle"
-                  >
-                    <i class="fs-4 bi-grid"></i>{" "}
-                    <span class="ms-1 d-none d-sm-inline">Products</span>{" "}
-                  </a>
-                  <ul
-                    class="collapse nav flex-column ms-1"
-                    id="submenu3"
-                    data-bs-parent="#menu"
-                  >
-                    <li class="w-100">
-                      <a href="#" class="nav-link px-0">
-                        {" "}
-                        <span class="d-none d-sm-inline">Product</span> 1
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" class="nav-link px-0">
-                        {" "}
-                        <span class="d-none d-sm-inline">Product</span> 2
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" class="nav-link px-0">
-                        {" "}
-                        <span class="d-none d-sm-inline">Product</span> 3
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" class="nav-link px-0">
-                        {" "}
-                        <span class="d-none d-sm-inline">Product</span> 4
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="#" class="nav-link px-0 align-middle">
-                    <i class="fs-4 bi-people"></i>{" "}
-                    <span class="ms-1 d-none d-sm-inline">Customers</span>{" "}
-                  </a>
-                </li>
-              </ul>
-              <hr />
-              <div class="dropdown pb-4">
-                <a
-                  href="#"
-                  class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
-                  id="dropdownUser1"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  <img
-                    src="https://github.com/mdo.png"
-                    alt="hugenerd"
-                    width="30"
-                    height="30"
-                    class="rounded-circle"
-                  />
-                  <span class="d-none d-sm-inline mx-1">loser</span>
-                </a>
-                <ul
-                  class="dropdown-menu dropdown-menu-dark text-small shadow"
-                  aria-labelledby="dropdownUser1"
-                >
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      New project...
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      Settings
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      Profile
-                    </a>
-                  </li>
-                  <li>
-                    <hr class="dropdown-divider" />
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      Sign out
-                    </a>
-                  </li>
-                </ul>
-              </div>
+              <a className="collapse-item" href="cards.html">
+                Cards
+              </a>
             </div>
           </div>
-          <div class="col py-3">
-            <h3>Left Sidebar with Submenus</h3>
-            <p class="lead">
-              An example 2-level sidebar with collasible menu items. The menu
-              functions like an "accordion" where only a single menu is be open
-              at a time. While the sidebar itself is not toggle-able, it does
-              responsively shrink in width on smaller screens.
-            </p>
-            <ul class="list-unstyled">
-              <li>
-                <h5>Responsive</h5> shrinks in width, hides text labels and
-                collapses to icons only on mobile
-              </li>
-            </ul>
+        </li>
+        {/* Nav Item - Utilities Collapse Menu */}
+        <li className="nav-item">
+          <div
+            id="collapseUtilities"
+            className="collapse"
+            aria-labelledby="headingUtilities"
+            data-parent="#accordionSidebar"
+          >
+            <div className="bg-white py-2 collapse-inner rounded">
+              <h6 className="collapse-header">Custom Utilities:</h6>
+              <a className="collapse-item" href="utilities-color.html">
+                Colors
+              </a>
+              <a className="collapse-item" href="utilities-border.html">
+                Borders
+              </a>
+              <a className="collapse-item" href="utilities-animation.html">
+                Animations
+              </a>
+              <a className="collapse-item" href="utilities-other.html">
+                Other
+              </a>
+            </div>
           </div>
+        </li>
+        {/* Divider */}
+        <hr className="sidebar-divider" />
+        {/* Heading */}
+        <div className="sidebar-heading">Addons</div>
+        {/* Nav Item - Pages Collapse Menu */}
+        <li className="nav-item">
+          <a
+            className="nav-link collapsed"
+            href="#"
+            data-toggle="collapse"
+            data-target="#collapsePages"
+            aria-expanded="true"
+            aria-controls="collapsePages"
+          >
+            <i className="fas fa-fw fa-folder" />
+            <span>Quản lý danh mục</span>
+          </a>
+
+          <div
+            id="collapsePages"
+            className="collapse"
+            aria-labelledby="headingPages"
+            data-parent="#accordionSidebar"
+          >
+            <div className="bg-white py-2 collapse-inner rounded">
+              <h6 className="collapse-header">Login Screens:</h6>
+              <a className="collapse-item" href="login.html">
+                Login
+              </a>
+              <a className="collapse-item" href="register.html">
+                Register
+              </a>
+              <a className="collapse-item" href="forgot-password.html">
+                Forgot Password
+              </a>
+              <div className="collapse-divider" />
+              <h6 className="collapse-header">Other Pages:</h6>
+              <a className="collapse-item" href="404.html">
+                404 Page
+              </a>
+              <a className="collapse-item" href="blank.html">
+                Blank Page
+              </a>
+            </div>
+          </div>
+        </li>
+
+        {/* Nav Item - Charts */}
+        <li className="nav-item">
+          <a className="nav-link" href="charts.html">
+            <i className="fas fa-fw fa-chart-area" />
+            <span>Quản lý danh sách</span>
+          </a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" href="charts.html">
+            <i className="fas fa-fw fa-chart-area" />
+            <span>Ứng tuyển</span>
+          </a>
+        </li>
+        {/* Nav Item - Tables */}
+        <li className="nav-item">
+          <a className="nav-link" href="tables.html">
+            <i className="fas fa-fw fa-table" />
+            <span>Tables</span>
+          </a>
+        </li>
+        {/* Divider */}
+        <hr className="sidebar-divider d-none d-md-block" />
+        {/* Sidebar Toggler (Sidebar) */}
+        <div className="text-center d-none d-md-inline">
+          <button className="rounded-circle border-0" id="sidebarToggle" />
         </div>
-      </div>
-      {/* End */}
+      </ul>
     </div>
   );
 };
