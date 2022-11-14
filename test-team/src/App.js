@@ -15,7 +15,6 @@ function App() {
           <Route path={ROUTES.HOME} element={<HomePage />} />
           <Route path={ROUTES.LOGIN} element={<Login />} />
           <Route path={ROUTES.REGISTER} element={<Register />} />
-          <Route path="/form" element={<Apply />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>

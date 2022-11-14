@@ -1,45 +1,6 @@
-import React, { useEffect } from "react";
-import { useFormik } from "formik";
-import { Link, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import "./login.css";
-import * as Yup from "yup";
-import * as ROUTES from "../../../constants/routes/routes";
-import {
-  loginUserAction,
-  selectUser,
-} from "../../../redux/slices/users/usersSlice";
-
-//TODO => Form Schema
-const formSchema = Yup.object({
-  email: Yup.string().required("Email is required"),
-  password: Yup.string().required("Password is required"),
-});
+import React from "react";
+import { Link } from "react-router-dom";
 export const Login = () => {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  //formik
-  const formik = useFormik({
-    initialValues: {
-      user_name: "",
-      password: "",
-    },
-    onSubmit: (values) => {
-      //dispatch the action
-      dispatch(loginUserAction(values));
-      console.log(values);
-    },
-    validationSchema: formSchema,
-  });
-
-  //todo: useNavigate
-  const store = useSelector(selectUser);
-  const { userAuth, loading, serverError, appError } = store;
-  useEffect(() => {
-    if (userAuth) {
-      navigate("/");
-    }
-  }, [navigate, userAuth]);
   return (
     <div className="login ">
       <div className="container">
@@ -56,14 +17,11 @@ export const Login = () => {
                       <div className="text-center">
                         <h1 className="h4 text-gray-900 mb-4">Welcome Back!</h1>
                       </div>
-                      <form onSubmit={formik.handleSubmit} className="user">
+                      <form className="user">
                         <div className="form-group">
                           <input
                             type="email"
                             placeholder="Enter Email Address..."
-                            value={formik.values.user_name}
-                            onChange={formik.handleChange("user_name")}
-                            onBlur={formik.handleBlur("user_name")}
                             className="form-control form-control-user"
                             id="exampleInputEmail"
                             aria-describedby="emailHelp"
@@ -73,9 +31,6 @@ export const Login = () => {
                           <input
                             type="password"
                             placeholder="Password"
-                            value={formik.values.password}
-                            onChange={formik.handleChange("password")}
-                            onBlur={formik.handleBlur("password")}
                             className="form-control form-control-user"
                             id="exampleInputPassword"
                           />
@@ -124,7 +79,7 @@ export const Login = () => {
                         </a>
                       </div>
                       <div className="text-center">
-                        <Link to={ROUTES.REGISTER}> Create an Account!</Link>
+                        <Link to="/"> Create an Account!</Link>
                       </div>
                     </div>
                   </div>
