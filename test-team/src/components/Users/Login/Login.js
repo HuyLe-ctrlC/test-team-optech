@@ -58,10 +58,10 @@ const Login = () => {
                       <form onSubmit={formik.handleSubmit} className="user">
                         <div className="form-group">
                           {/* Error Email */}
-                          <div className="text-red-400 mb-2">
+                          <h6 className="display-6 text-danger">
                             {formik.touched.user_name &&
                               formik.errors.user_name}
-                          </div>
+                          </h6>
                           <input
                             type="email"
                             placeholder="Enter Email Address..."
