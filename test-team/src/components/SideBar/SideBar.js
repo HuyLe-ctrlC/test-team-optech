@@ -1,31 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import * as ROUTES from "../../constants/routes/routes";
-
-const navigation = [
-  {
-    name: "Home",
-    href: ROUTES.HOME,
-    current: true,
-  },
-  {
-    name: "Ứng tuyển",
-    href: ROUTES.APPLY,
-    current: false,
-  },
-  {
-    name: "Danh sách ứng viên",
-    href: ROUTES.LIST_CANDIDATES,
-    current: false,
-  },
-  {
-    name: "Quản lý danh mục",
-    href: ROUTES.CATEGORY,
-    current: false,
-  },
-];
+import { logoutAction } from "../../redux/slices/users/usersSlice";
 
 export const SideBar = () => {
+  const dispatch = useDispatch();
   return (
     <div className="sidebar">
       <ul
@@ -74,7 +53,7 @@ export const SideBar = () => {
           <div
             id="collapseTwo"
             className="collapse"
-            aria-labelledby="headingTwo"
+            aria-label="headingTwo"
             data-parent="#accordionSidebar"
           >
             <div className="bg-white py-2 collapse-inner rounded">
@@ -93,7 +72,7 @@ export const SideBar = () => {
           <div
             id="collapseUtilities"
             className="collapse"
-            aria-labelledby="headingUtilities"
+            aria-label="headingUtilities"
             data-parent="#accordionSidebar"
           >
             <div className="bg-white py-2 collapse-inner rounded">
@@ -134,7 +113,7 @@ export const SideBar = () => {
           <div
             id="collapsePages"
             className="collapse"
-            aria-labelledby="headingPages"
+            aria-label="headingPages"
             data-parent="#accordionSidebar"
           >
             <div className="bg-white py-2 collapse-inner rounded">
@@ -162,22 +141,33 @@ export const SideBar = () => {
 
         {/* Nav Item - Charts */}
         <li className="nav-item">
-          <a className="nav-link" href="charts.html">
+          <a className="nav-link" href={ROUTES.LIST_CANDIDATES}>
             <i className="fas fa-fw fa-chart-area" />
             <span>Quản lý danh sách</span>
           </a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="charts.html">
+          <a className="nav-link" href={ROUTES.APPLY}>
             <i className="fas fa-fw fa-chart-area" />
             <span>Ứng tuyển</span>
           </a>
         </li>
         {/* Nav Item - Tables */}
         <li className="nav-item">
-          <a className="nav-link" href="tables.html">
+          <a className="nav-link" href={ROUTES.TABLE}>
             <i className="fas fa-fw fa-table" />
             <span>Tables</span>
+          </a>
+        </li>
+        {/* Nav Item - Tables */}
+        <li className="nav-item">
+          <a
+            className="nav-link cursor"
+            href={ROUTES.LOGIN}
+            onClick={() => dispatch(logoutAction())}
+          >
+            <i className="fas fa-fw fa-table" />
+            <span>Logout</span>
           </a>
         </li>
         {/* Divider */}
