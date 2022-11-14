@@ -5,6 +5,7 @@ import { HomePage } from "./components/HomePage/HomePage";
 import { Login } from "./components/Users/Login/Login";
 import { Register } from "./components/Users/Register/Register";
 import * as ROUTES from "./constants/routes/routes";
+import { Apply } from "./components/Apply/Apply";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path={ROUTES.HOME} element={<HomePage />} />
           <Route path={ROUTES.LOGIN} element={<Login />} />
           <Route path={ROUTES.REGISTER} element={<Register />} />
+          <Route path="/form" element={<Apply />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
