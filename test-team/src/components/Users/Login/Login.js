@@ -11,10 +11,11 @@ import {
 
 //TODO => Form Schema
 const formSchema = Yup.object({
-  email: Yup.string().required("Email is required"),
+  user_name: Yup.string().required("Email is required"),
   password: Yup.string().required("Password is required"),
 });
-export const Login = () => {
+
+const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   //formik
@@ -26,7 +27,6 @@ export const Login = () => {
     onSubmit: (values) => {
       //dispatch the action
       dispatch(loginUserAction(values));
-      console.log(values);
     },
     validationSchema: formSchema,
   });
@@ -38,6 +38,7 @@ export const Login = () => {
       navigate("/");
     }
   }, [navigate, userAuth]);
+
   return (
     <div className="login ">
       <div className="container">
@@ -56,6 +57,11 @@ export const Login = () => {
                       </div>
                       <form onSubmit={formik.handleSubmit} className="user">
                         <div className="form-group">
+                          {/* Error Email */}
+                          <div className="text-red-400 mb-2">
+                            {formik.touched.user_name &&
+                              formik.errors.user_name}
+                          </div>
                           <input
                             type="email"
                             placeholder="Enter Email Address..."
@@ -74,6 +80,10 @@ export const Login = () => {
                           </div>
                         ) : null}
                         <div className="form-group">
+                          {/* Error Email */}
+                          <div className="text-red-400 mb-2">
+                            {formik.touched.password && formik.errors.password}
+                          </div>
                           <input
                             type="password"
                             placeholder="Password"
@@ -141,3 +151,5 @@ export const Login = () => {
     </div>
   );
 };
+
+export default Login;
