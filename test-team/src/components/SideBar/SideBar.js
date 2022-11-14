@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import * as ROUTES from "../../constants/routes/routes";
 import { logoutAction } from "../../redux/slices/users/usersSlice";
 
@@ -141,23 +142,23 @@ export const SideBar = () => {
 
         {/* Nav Item - Charts */}
         <li className="nav-item">
-          <a className="nav-link" href={ROUTES.LIST_CANDIDATES}>
+          <Link className="nav-link" to={ROUTES.LIST_CANDIDATES}>
             <i className="fas fa-fw fa-chart-area" />
             <span>Quản lý danh sách</span>
-          </a>
+          </Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href={ROUTES.APPLY}>
+          <Link className="nav-link" to={ROUTES.APPLY}>
             <i className="fas fa-fw fa-chart-area" />
             <span>Ứng tuyển</span>
-          </a>
+          </Link>
         </li>
         {/* Nav Item - Tables */}
         <li className="nav-item">
-          <a className="nav-link" href={ROUTES.TABLE}>
+          <Link className="nav-link" to={ROUTES.TABLE}>
             <i className="fas fa-fw fa-table" />
             <span>Tables</span>
-          </a>
+          </Link>
         </li>
         {/* Nav Item - Tables */}
         <li className="nav-item">

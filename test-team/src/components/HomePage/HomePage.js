@@ -1,7 +1,8 @@
 import React from "react";
+import { Outlet } from "react-router-dom";
 
 import { SideBar } from "../SideBar/SideBar";
-import { Topbar } from "../Topbar/Topbar";
+import { Navigation } from "../Navigation/Navigation";
 export const HomePage = () => {
   return (
     <div>
@@ -9,8 +10,10 @@ export const HomePage = () => {
         {" "}
         <SideBar />
         <div id="content-wrapper">
-          <Topbar />
-          <div id="content">homepage</div>
+          <Navigation />
+          <div id="content">
+            <Outlet />
+          </div>
         </div>
       </div>
     </div>
