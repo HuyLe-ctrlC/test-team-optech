@@ -1,9 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import * as ROUTES from "../../constants/routes/routes";
-import { RiDashboardFill } from "react-icons/ri";
-import { FaUserFriends } from "react-icons/fa";
-import { MdCategory } from "react-icons/md";
+
 const navigation = [
   {
     name: "Home",
