@@ -167,7 +167,7 @@ export const SideBar = () => {
             href={ROUTES.LOGIN}
             onClick={() => dispatch(logoutAction())}
           >
-            <i className="fas fa-fw fa-table" />
+            <i class="fa-solid fa-right-from-bracket"></i>
             <span>Logout</span>
           </a>
         </li>

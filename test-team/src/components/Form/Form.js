@@ -1,25 +1,60 @@
-import React from "react";
-
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import "./form.css";
 export const Form = () => {
+  const [user, setUser] = useState();
+  const [search, setSearch] = useState("");
+  const [statu, setStatu] = useState(false);
+
+  const handleStatu = () => {
+    setStatu(!statu);
+  };
+
+  // get all user
+  const getUser = async () => {
+    const response = await axios.get(
+      "http://192.168.102.6:3000/api/user/getall  "
+    );
+    setUser(response.data.data);
+  };
+  useEffect(() => {
+    getUser();
+  }, []);
+
+  //search user
+
   return (
     <div className="container-fluid">
       {/* Page Heading */}
       <h1 className="h3 mb-2 text-gray-800">Tables</h1>
       <p className="mb-4">
         DataTables is a third party plugin that is used to generate the demo
-        table below. For more information about DataTables, please visit the{" "}
-        <a target="_blank" href="https://datatables.net">
-          official DataTables documentation
-        </a>
-        .
+        table below. For more information about DataTables, please visit the .
       </p>
       {/* DataTales Example */}
-      <div className="card shadow mb-4">
-        <div className="card-header py-3">
+      <div className="card shadow mb-4 ">
+        <div className="card-header py-3 group">
           <h6 className="m-0 font-weight-bold text-primary">
             DataTables Example
           </h6>
+          <div className="input-group">
+            <input
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              type="text"
+              className="form-control bg-light border-0 small"
+              placeholder="Search for..."
+              aria-label="Search"
+              aria-describedby="basic-addon2"
+            />
+            <div className="input-group-append">
+              <button className="btn btn-primary" type="button">
+                <i className="fas fa-search fa-sm" />
+              </button>
+            </div>
+          </div>
         </div>
+
         <div className="card-body">
           <div className="table-responsive">
             <table
@@ -30,96 +65,52 @@ export const Form = () => {
             >
               <thead>
                 <tr>
-                  <th>Name</th>
-                  <th>Position</th>
-                  <th>Office</th>
-                  <th>Age</th>
-                  <th>Start date</th>
-                  <th>Salary</th>
+                  <th>Họ và tên</th>
+                  <th>Email</th>
+                  <th>Số điện thoại</th>
+                  <th>Quê quán</th>
+                  <th>Địa chỉ hiện tại</th>
+                  <th>Năm sinh</th>
+                  <th>Trạng thái</th>
+                  <th>Hành động</th>
                 </tr>
               </thead>
-
               <tbody>
-                <tr>
-                  <td>Jennifer Chang</td>
-                  <td>Regional Director</td>
-                  <td>Singapore</td>
-                  <td>28</td>
-                  <td>2010/11/14</td>
-                  <td>$357,650</td>
-                </tr>
-                <tr>
-                  <td>Brenden Wagner</td>
-                  <td>Software Engineer</td>
-                  <td>San Francisco</td>
-                  <td>28</td>
-                  <td>2011/06/07</td>
-                  <td>$206,850</td>
-                </tr>
-                <tr>
-                  <td>Fiona Green</td>
-                  <td>Chief Operating Officer (COO)</td>
-                  <td>San Francisco</td>
-                  <td>48</td>
-                  <td>2010/03/11</td>
-                  <td>$850,000</td>
-                </tr>
-                <tr>
-                  <td>Shou Itou</td>
-                  <td>Regional Marketing</td>
-                  <td>Tokyo</td>
-                  <td>20</td>
-                  <td>2011/08/14</td>
-                  <td>$163,000</td>
-                </tr>
-                <tr>
-                  <td>Michelle House</td>
-                  <td>Integration Specialist</td>
-                  <td>Sidney</td>
-                  <td>37</td>
-                  <td>2011/06/02</td>
-                  <td>$95,400</td>
-                </tr>
-                <tr>
-                  <td>Suki Burks</td>
-                  <td>Developer</td>
-                  <td>London</td>
-                  <td>53</td>
-                  <td>2009/10/22</td>
-                  <td>$114,500</td>
-                </tr>
-                <tr>
-                  <td>Prescott Bartlett</td>
-                  <td>Technical Author</td>
-                  <td>London</td>
-                  <td>27</td>
-                  <td>2011/05/07</td>
-                  <td>$145,000</td>
-                </tr>
-                <tr>
-                  <td>Gavin Cortez</td>
-                  <td>Team Leader</td>
-                  <td>San Francisco</td>
-                  <td>22</td>
-                  <td>2008/10/26</td>
-                  <td>$235,500</td>
-                </tr>
-                <tr>
-                  <td>Martena Mccray</td>
-                  <td>Post-Sales support</td>
-                  <td>Edinburgh</td>
-                  <td>46</td>
-                  <td>2011/03/09</td>
-                  <td>$324,050</td>
-                </tr>
-                <tr>
-                  <td>Unity Butler</td>
-                  <td>Marketing Designer</td>
-                  <td>San Francisco</td>
-                  <td>47</td>
-                  <td>2009/12/09</td>
-                  <td>$85,675</td>
-                </tr>
+                {user?.map((item, id) => (
+                  <tr key={id}>
+                    <td>{item.name}</td>
+                    <td>{item.email}</td>
+                    <td>{item.phone}</td>
+                    <td>{item.place_of_origin}</td>
+                    <td>{item.address}</td>
+                    <td>{item.date_of_birth}</td>
+                    <td>{item.status}</td>
+                    <td>
+                      <button
+                        onClick={handleStatu}
+                        style={{ marginRight: "10px", border: "none" }}
+                      >
+                        Edit
+                      </button>
+                      {statu ? (
+                        <>
+                          <div className="statu">1</div>
+                        </>
+                      ) : (
+                        <></>
+                      )}
+                      <button
+                        style={{
+                          border: "none",
+                          backgroundColor: "red",
+                          color: "white",
+                        }}
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
