@@ -1,5 +1,10 @@
 import React from "react";
+import { SideBar } from "../SideBar/SideBar";
 
 export const HomePage = () => {
-  return <div>HomePage</div>;
+  return (
+    <div>
+      <SideBar />
+    </div>
+  );
 };
