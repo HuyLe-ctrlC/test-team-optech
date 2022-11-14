@@ -11,8 +11,8 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
+          <Route index path={ROUTES.LOGIN} element={<Login />} />
           <Route path={ROUTES.HOME} element={<HomePage />} />
-          <Route path={ROUTES.LOGIN} element={<Login />} />
           <Route path={ROUTES.REGISTER} element={<Register />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
