@@ -21,18 +21,18 @@ export const Login = () => {
                         <div className="form-group">
                           <input
                             type="email"
+                            placeholder="Enter Email Address..."
                             className="form-control form-control-user"
                             id="exampleInputEmail"
                             aria-describedby="emailHelp"
-                            placeholder="Enter Email Address..."
                           />
                         </div>
                         <div className="form-group">
                           <input
                             type="password"
+                            placeholder="Password"
                             className="form-control form-control-user"
                             id="exampleInputPassword"
-                            placeholder="Password"
                           />
                         </div>
                         <div className="form-group">
@@ -50,12 +50,12 @@ export const Login = () => {
                             </label>
                           </div>
                         </div>
-                        <a
-                          href="index.html"
+                        <button
+                          type="submit"
                           className="btn btn-primary btn-user btn-block"
                         >
                           Login
-                        </a>
+                        </button>
                         <hr />
                         <a
                           href="index.html"
@@ -79,7 +79,7 @@ export const Login = () => {
                         </a>
                       </div>
                       <div className="text-center">
-                        <Link to="/register"> Create an Account!</Link>
+                        <Link to="/"> Create an Account!</Link>
                       </div>
                     </div>
                   </div>

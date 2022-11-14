@@ -6,6 +6,7 @@ import { Login } from "./components/Users/Login/Login";
 import { Register } from "./components/Users/Register/Register";
 import { TablePage } from "./components/TablePage/TablePage";
 import * as ROUTES from "./constants/routes/routes";
+import { Apply } from "./components/Apply/Apply";
 
 function App() {
   return (
