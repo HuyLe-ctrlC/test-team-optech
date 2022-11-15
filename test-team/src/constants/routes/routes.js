@@ -11,3 +11,4 @@ export const UPDATE_PASSWORD = "/update-password";
 export const APPLY = "/form-apply";
 export const LIST_CANDIDATES = "/list-candidates";
 export const TABLE = "/table";
+export const APPLY_MESSAGE = "/apply-success";

@@ -95,7 +95,7 @@ const usersSlices = createSlice({
       })
       .addCase(loginUserAction.rejected, (state, action) => {
         state.loading = false;
-        state.appError = action?.payload.message;
+        state.appError = action?.payload?.message;
         state.serverError = action?.error?.message;
       });
     //logout
@@ -111,7 +111,7 @@ const usersSlices = createSlice({
       })
       .addCase(logoutAction.rejected, (state, action) => {
         state.loading = false;
-        state.appError = action?.payload.message;
+        state.appError = action?.payload?.message;
         state.serverError = action?.error?.message;
       });
   },
