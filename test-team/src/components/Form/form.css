@@ -6,3 +6,31 @@
 .input-group {
   width: 300px;
 }
+.statu {
+  background-color: rgb(108, 108, 109);
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.status {
+  background-color: red;
+}
+.statu form {
+  padding: 50px;
+  color: white;
+}
+.statu h6 {
+  color: white;
+  text-align: center;
+}
+tbody tr td span {
+  padding: 5px 20px;
+  color: white;
+  border-radius: 20px;
+  font-weight: bold;
+}
+.statu form input {
+  padding: 5px 30px;
+}

@@ -108,7 +108,7 @@ export const SideBar = () => {
             aria-controls="collapsePages"
           >
             <i className="fas fa-fw fa-folder" />
-            <span>Quản lý danh mục</span>
+            <span>Cập nhật thông tin</span>
           </a>
 
           <div
